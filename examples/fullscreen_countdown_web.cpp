@@ -13,6 +13,8 @@
  * Date: Août 2025
  */
 
+ #define bridur 250
+
 #define PxMATRIX_SPI_FREQUENCY 10000000
 
 // Option d'optimisation démarrage : définir FAST_BOOT pour réduire fortement les délais init
@@ -556,7 +558,7 @@ int endMessageColorB = 0;
 uint16_t endMessageColor;
 int endMessageEffect = 0; // 0=static, 1=blink, 2=fade, 3=rainbow
 
-int displayBrightness = -1; // -1 = auto (calculé selon nombre de panneaux)
+int displayBrightness = 250; // -1 = auto (calculé selon nombre de panneaux)
 
 // Format d'affichage (0=jours, 1=heures, 2=minutes, 3=secondes uniquement)
 int displayFormat = 0;
@@ -1830,7 +1832,7 @@ void loadSettings() {
   marqueeAccelStartIntervalMs = preferences.getInt("mqAccSt", 80);
   marqueeAccelEndIntervalMs = preferences.getInt("mqAccEnd", 30);
   marqueeAccelDurationMs = preferences.getInt("mqAccDur", 3000);
-  displayBrightness = preferences.getInt("bright", -1);
+  displayBrightness = preferences.getInt("bright", 250);
     
     String savedTitle = preferences.getString("cd_Title", "COUNTDOWN");
     strcpy(countdownTitle, savedTitle.c_str());
